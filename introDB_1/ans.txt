@@ -3,3 +3,6 @@ select * from prefectures;
 
 #2
 select id,name as '都道府県名' from prefectures;
+
+#3
+select * from prefectures where population < 1000000;
