@@ -12,3 +12,6 @@ select * from prefectures order by area desc limit 10;
 
 #5
 select * from prefectures where name like '%島%';
+
+#6
+select max(highest) as '最高気温',min(lowest) as '最低気温' from temperature_august;
