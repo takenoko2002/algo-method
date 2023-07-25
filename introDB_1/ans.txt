@@ -1,22 +1,22 @@
-#1
+#1-1
 select * from prefectures;
 
-#2
+#1-2
 select id,name as '都道府県名' from prefectures;
 
-#3
+#1-3
 select * from prefectures where population < 1000000;
 
-#4
+#1-4
 select * from prefectures order by area desc limit 10;
 
-#5
+#1-5
 select * from prefectures where name like '%島%';
 
-#6
+#1-6
 select max(highest) as '最高気温',min(lowest) as '最低気温' from temperature_august;
 
-#7
+#1-7
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 ヒント 2. ORDER BY の落とし穴
 AS 句で名前を指定したカラムでデータをソートする場合は注意が必要です。 たとえば、次のクエリは都道府県データを人口が少ない順に表示することを想定したクエリですが、
@@ -27,3 +27,10 @@ SELECT name, population AS '人口' FROM prefectures ORDER BY '人口'
 SELECT name, population AS '人口' FROM prefectures ORDER BY `人口`
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 select id,name as '都道府県名',population / area as '人口密度' from prefectures order by `人口密度` desc;
+
+#1-8
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+副問い合わせ文の中に ; はつけません。
+複数の中のいずれかという条件をつけたい時には、WHERE 節の中で IN を使うとよいです。
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+select * from prefectures where name IN (select name from kanto_regions);
