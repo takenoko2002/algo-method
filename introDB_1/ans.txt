@@ -15,3 +15,15 @@ select * from prefectures where name like '%島%';
 
 #6
 select max(highest) as '最高気温',min(lowest) as '最低気温' from temperature_august;
+
+#7
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+ヒント 2. ORDER BY の落とし穴
+AS 句で名前を指定したカラムでデータをソートする場合は注意が必要です。 たとえば、次のクエリは都道府県データを人口が少ない順に表示することを想定したクエリですが、
+これは正しく動作しません。
+
+SELECT name, population AS '人口' FROM prefectures ORDER BY '人口'
+正しく動作させるためには、ORDER BY 句で用いられるカラム名は「`」で囲う必要があります。
+SELECT name, population AS '人口' FROM prefectures ORDER BY `人口`
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+select id,name as '都道府県名',population / area as '人口密度' from prefectures order by `人口密度` desc;
