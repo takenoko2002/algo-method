@@ -34,3 +34,6 @@ select id,name as '都道府県名',population / area as '人口密度' from pre
 複数の中のいずれかという条件をつけたい時には、WHERE 節の中で IN を使うとよいです。
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 select * from prefectures where name IN (select name from kanto_regions);
+
+#2-1
+SELECT  region AS '地方名' ,COUNT(*) AS '都道府県数', SUM(area) AS '総面積' FROM prefectures GROUP BY region order by `総面積` desc;
