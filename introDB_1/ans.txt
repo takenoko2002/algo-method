@@ -42,3 +42,7 @@ SELECT  region AS '地方名' ,COUNT(*) AS '都道府県数', SUM(area) AS '総�
 UPDATE prefectures SET name = '茨城県' WHERE name = '茨木県';
 UPDATE prefectures SET name = '鳥取県' WHERE name = '取鳥県';
 SELECT * FROM prefectures;
+
+#2-4
+DELETE FROM prefectures WHERE id == 0 OR id >= 48;
+SELECT * FROM prefectures;
