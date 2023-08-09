@@ -106,4 +106,8 @@ SQL文の中で条件分岐を行うには CASE 式を使います。
 偶奇判定を行うには以下のような文となる。
 SELECT CASE WHEN id%2 = 0 THEN '偶数' ELSE '奇数' END AS '偶奇' FROM xxxxx;
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-
+SELECT *,\
+CASE WHEN score \
+BETWEEN 90 AND 100 THEN '秀' \
+ELSE IF BETWEEN 80 AND 89 THEN '優' \
+END AS '評価' FROM grades;
