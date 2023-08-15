@@ -160,4 +160,24 @@ SELECT email FROM registrations_day2
 INTERSECT
 SELECT email FROM registrations_day3;
 
+#3-7
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+複数のクエリの結果から差分を抽出したいときには EXCEPT 演算子を使う。
+EXCEPT で結ばれた複数のクエリは、実行結果のフォーマット (カラムの数や順番、それぞれのデータ型) が一致していないといけない。
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+WITH
+    except_table
+AS 
+(
+    SELECT email,game_id,score FROM results
+    EXCEPT
+    SELECT email,game_id,score FROM optout
+)
+
+SELECT email FROM except_table
+GROUP BY email
+ORDER BY
+      SUM(score) DESC
+LIMIT 10;
+
 
