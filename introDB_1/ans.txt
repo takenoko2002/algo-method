@@ -186,4 +186,16 @@ select * from users where name like '%RURU' AND rank IS null AND flg_data_public
 #4-2
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 条件付き COUNT
+COUNT 関数は、その引数（カッコの中の値）が NULL でないときにカウントする。
+そのため、COUNT 文の中に条件式を単に書くだけでは、その返り値が 0 か 1 になるので、いずれにせよカウントされてしまう。
+そのため条件を満たさないときに NULL となるような式をかけばよい。 具体的には、以下のように [条件] OR NULL とするとよい。
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT subject AS '科目', 
+count(score BETWEEN 90 AND 100 OR NULL) AS '秀',
+count(score BETWEEN 80 AND 89 OR NULL) AS '優',
+count(score BETWEEN 65 AND 79 OR NULL) AS '良',
+count(score BETWEEN 50 AND 64 OR NULL) AS '可',
+count(score BETWEEN 0 AND 49 OR NULL) AS '不可'
+FROM grades
+GROUP BY subject;
+
