@@ -217,3 +217,14 @@ ROW_NUMBER() OVER(ORDER BY score DESC, id ASC) '順位',
 name AS '名前',
 score AS 'スコア'
 FROM result_table
+
+#4-4
+
+
+ROWNUMBER句を用いてランキングを集計したのちに指定された順位のデータを抽出する
+
+
+
+
+
+
