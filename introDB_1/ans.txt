@@ -264,7 +264,7 @@ WITH
 AS (
     SELECT *    
     FROM temperature_august
-    GROUP BY prefecture HAVING MIN(lowest)
+    GROUP BY prefecture HAVING MIN(highest)
 )
 
 select
