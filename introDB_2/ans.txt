@@ -1,1 +1,3 @@
 
+2-1
+select * from students where age >= 18;
