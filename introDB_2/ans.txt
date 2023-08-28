@@ -1,3 +1,9 @@
 
 2-1
 select * from students where age >= 18;
+
+2-2
+select
+floor(avg(score)) AS '平均点',
+max(score) AS '最高点'
+from grades;
