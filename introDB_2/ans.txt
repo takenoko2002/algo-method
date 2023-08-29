@@ -7,3 +7,6 @@ select
 floor(avg(score)) AS '平均点',
 max(score) AS '最高点'
 from grades;
+
+2-3
+select * from prefectures where name like '_%山%';
