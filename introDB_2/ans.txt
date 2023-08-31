@@ -10,3 +10,6 @@ from grades;
 
 2-3
 select * from prefectures where name like '_%山%';
+
+2-4
+SUBSTR(name, -1)で取得
