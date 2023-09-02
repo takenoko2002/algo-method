@@ -19,3 +19,15 @@ select SUBSTR(name, -1) AS '分類',count(*) AS '総数' from prefectures group 
 
 2-5
 select choice AS '選択肢',count(*) AS '得票数' from votes group by choice order by count(*) DESC,choice ASC;
+
+2-6
+
+WITH
+    population_tokyo
+AS (
+    -- ここに適切なクエリを記述してください
+    SELECT population FROM prefectures WHERE name = '東京都'
+)
+
+select prefectures.* from prefectures,population_tokyo where prefectures.population > (population_tokyo.population /2 )
+order by population DESC;
