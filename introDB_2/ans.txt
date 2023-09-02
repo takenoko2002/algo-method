@@ -17,3 +17,5 @@ SUBSTR(name, -1)でnameの末尾を取得し、GROUP BY でまとめる
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 select SUBSTR(name, -1) AS '分類',count(*) AS '総数' from prefectures group by SUBSTR(name, -1);
 
+2-5
+select choice AS '選択肢',count(*) AS '得票数' from votes group by choice order by count(*) DESC,choice ASC;
