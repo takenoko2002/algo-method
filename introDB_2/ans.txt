@@ -38,3 +38,7 @@ ROW_NUMBER() OVER(ORDER BY score DESC, id ASC) '順位',
 name AS '名前',
 score AS 'スコア'
 FROM results DESC LIMIT 20 OFFSET 40 ;
+
+2-6
+UPDATE grades SET score = 25 WHERE problem_id = 1;
+SELECT name AS '名前', sum(score) AS '合計点' FROM grades GROUP BY name;
