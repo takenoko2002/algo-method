@@ -42,3 +42,31 @@ FROM results DESC LIMIT 20 OFFSET 40 ;
 2-6
 UPDATE grades SET score = 25 WHERE problem_id = 1;
 SELECT name AS '名前', sum(score) AS '合計点' FROM grades GROUP BY name;
+
+2-7
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+副問合せの中に副問合せを書いても可
+SELECT
+    *
+FROM
+    posts
+WHERE
+    author = (
+        SELECT author FROM posts WHERE faves = (
+            SELECT MAX(faves) FROM posts
+        )
+    )
+ORDER BY
+    DATE(date) DESC
+LIMIT 5;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+WITH
+    fav_author
+AS (
+    -- ここに適切なクエリを記述してください
+    SELECT author,max(faves) FROM posts
+)
+
+select posts.* from posts,fav_author where fav_author.author = posts.author
+order by date DESC LIMIT 5 OFFSET 0;
