@@ -1,26 +1,26 @@
 
-2-1
+5-1
 select * from students where age >= 18;
 
-2-2
+5-2
 select
 floor(avg(score)) AS '平均点',
 max(score) AS '最高点'
 from grades;
 
-2-3
+5-3
 select * from prefectures where name like '_%山%';
 
-2-4
+5-4
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 SUBSTR(name, -1)でnameの末尾を取得し、GROUP BY でまとめる
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 select SUBSTR(name, -1) AS '分類',count(*) AS '総数' from prefectures group by SUBSTR(name, -1);
 
-2-5
+5-5
 select choice AS '選択肢',count(*) AS '得票数' from votes group by choice order by count(*) DESC,choice ASC;
 
-2-6
+5-6
 
 WITH
     population_tokyo
@@ -32,18 +32,18 @@ AS (
 select prefectures.* from prefectures,population_tokyo where prefectures.population > (population_tokyo.population /2 )
 order by population DESC;
 
-2-5
+5-5
 SELECT 
 ROW_NUMBER() OVER(ORDER BY score DESC, id ASC) '順位',
 name AS '名前',
 score AS 'スコア'
 FROM results DESC LIMIT 20 OFFSET 40 ;
 
-2-6
+5-6
 UPDATE grades SET score = 25 WHERE problem_id = 1;
 SELECT name AS '名前', sum(score) AS '合計点' FROM grades GROUP BY name;
 
-2-7
+5-7
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 副問合せの中に副問合せを書いても可
 SELECT
@@ -72,6 +72,10 @@ select posts.* from posts,fav_author where fav_author.author = posts.author
 order by date DESC LIMIT 5 OFFSET 0;
 
 
-2-1
+6-1
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 答え 4
+
+6-2
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+答え 2 ,1 ,1
