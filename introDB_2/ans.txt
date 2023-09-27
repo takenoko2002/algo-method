@@ -151,3 +151,11 @@ SELECT prefectures.name AS '都道府県名',
 regions.id AS '地方ID',
 regions.name AS '地方名'
 FROM prefectures INNER JOIN regions ON prefectures.region_id = regions.id;
+
+
+7-2
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT students.name AS '氏名',
+faculties.name AS '所属学部'
+FROM students INNER JOIN faculties ON students.faculty_id = faculties.id;
