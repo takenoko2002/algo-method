@@ -159,3 +159,11 @@ FROM prefectures INNER JOIN regions ON prefectures.region_id = regions.id;
 SELECT students.name AS '氏名',
 faculties.name AS '所属学部'
 FROM students INNER JOIN faculties ON students.faculty_id = faculties.id;
+
+7-3
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT students.name AS '氏名',
+faculties.name AS '所属学部'
+FROM faculties LEFT OUTER JOIN students ON students.faculty_id = faculties.id;
+
