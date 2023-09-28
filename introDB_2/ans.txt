@@ -167,3 +167,11 @@ SELECT students.name AS '氏名',
 faculties.name AS '所属学部'
 FROM faculties LEFT OUTER JOIN students ON students.faculty_id = faculties.id;
 
+7-4
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+「NULL ならば別の値に書き換える」という処理は IFNULL 関数を用いると実現できます。
+IFNULL(x, y) で、「カラム x が NULL でなければその値、NULL ならば y」を表します。
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT ifnull(students.name, '該当なし') AS '氏名',
+faculties.name AS '所属学部'
+FROM faculties LEFT OUTER JOIN students ON students.faculty_id = faculties.id;
