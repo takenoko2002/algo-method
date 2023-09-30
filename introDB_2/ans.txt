@@ -175,3 +175,5 @@ IFNULL(x, y) で、「カラム x が NULL でなければその値、NULL な�
 SELECT ifnull(students.name, '該当なし') AS '氏名',
 faculties.name AS '所属学部'
 FROM faculties LEFT OUTER JOIN students ON students.faculty_id = faculties.id;
+
+7-5
