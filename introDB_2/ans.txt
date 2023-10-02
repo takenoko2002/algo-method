@@ -182,3 +182,7 @@ FROM faculties LEFT OUTER JOIN students ON students.faculty_id = faculties.id;
 select prefectures.name AS '都道府県名'
 from prefectures INNER JOIN cities ON prefectures.id = cities.prefecture_id
 WHERE  cities.name = '府中市';
+
+7-6
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
