@@ -202,8 +202,18 @@ INNER JOIN wards ON cities.id = wards.city_id;
 7-8
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-
 SELECT  students.name AS '氏名' , subjects.name AS '科目名' , grades.score AS '点数' 
 FROM grades
 INNER JOIN students ON grades.student_id = students.id
 INNER JOIN subjects ON grades.subject_id = subjects.id;
+
+7-9
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT  subjects.name AS '科目名',
+count(students.enrollment_year = 2023 OR NULL) AS '1年生履修者数',
+count(students.enrollment_year = 2022 OR NULL) AS '2年生履修者数'
+FROM registrations
+INNER JOIN students  ON registrations.student_id = students.id
+INNER JOIN subjects  ON registrations.subject_id = subjects.id
+group by subjects.name;
