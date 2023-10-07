@@ -217,3 +217,5 @@ FROM registrations
 INNER JOIN students  ON registrations.student_id = students.id
 INNER JOIN subjects  ON registrations.subject_id = subjects.id
 group by subjects.name;
+
+8-1
