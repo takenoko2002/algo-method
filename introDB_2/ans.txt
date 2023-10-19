@@ -313,3 +313,23 @@ SELECT
 FROM
     prefectures
     LEFT OUTER JOIN regions ON prefectures.region_id = regions.id;
+
+
+8-6
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE users (id INTEGER NOT NULL PRIMARY KEY,name TEXT UNIQUE CHECK(LENGTH(name) BETWEEN 5 AND 15 ),age INTEGER CHECK( age >= 13));
+-- データの追加
+INSERT INTO
+    users
+VALUES
+    (1, 'arara234', 38), (2, 'ir1ri_kame', 14), (3, 'oruru', 25);
+
+-- 次のクエリを実行するとそれぞれエラーが出ることを確認してみましょう
+-- (提出時にはコメントアウトしてください)
+-- INSERT INTO users VALUES (4, 'aruru', 5);
+-- INSERT INTO users VALUES (5, 'a', 20);
+-- INSERT INTO users VALUES (6, 'very_long_user_name', 15);
+
+-- データの表示
+SELECT * FROM users;
