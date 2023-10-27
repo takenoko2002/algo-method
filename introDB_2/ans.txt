@@ -372,3 +372,4 @@ VALUES
 -- データの表示
 SELECT * FROM posts;
 
+8-9
