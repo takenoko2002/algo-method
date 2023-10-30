@@ -403,3 +403,35 @@ FROM
     users
     INNER JOIN posts
         ON posts.user_id = users.id;
+
+8-10
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+-- ここにテーブルを作成するクエリを記述してください
+CREATE TABLE likes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    post_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (post_id) REFERENCES posts(id)
+    );
+-- データの追加
+INSERT INTO
+    likes(user_id, post_id)
+VALUES
+    (1, 3), (2, 1), (2, 2), (3, 2);
+
+-- テーブルを結合してデータを表示
+SELECT
+    posts.id AS '投稿ID',
+    posts.body AS '投稿内容',
+    users.id AS 'いいねしたユーザのID',
+    users.name AS 'いいねしたユーザ'
+FROM
+    likes
+    INNER JOIN users, posts
+        ON likes.user_id = users.id
+        AND likes.post_id = posts.id
+ORDER BY
+    `投稿ID`;
+
